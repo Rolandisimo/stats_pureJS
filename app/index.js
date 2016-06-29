@@ -33,31 +33,23 @@ const loadPage = (sources) => {
 
         Gauge.prototype._init = function(source) {
             let gaugeCircle = this.gaugeCircle,
-                gaugeInfo = this.gaugeInfo;
+                gaugeInfo = this.gaugeInfo,
+                createGaugeMain = this.createGaugeMain,
+                mainContainer = this.mainContainer;
 
             //Grab the main container for gauges
-            this.mainContainer = document.querySelector('#main_container');
+            mainContainer = document.querySelector('#main_container');
 
             // Create Gauge DOM elements
-            this.createGaugeMain = createDiv();
-            this.createGaugeMain.className = "gauge_main col-md-4";
-
-
-            gaugeCircle = createDiv();
-            gaugeInfo = createDiv();
-
-            //Set classes.
-            gaugeCircle.className = "gauge__circle";
-            gaugeInfo.className = "gauge__info";
-
-            //Construct inner HTMLs
-
+            createGaugeMain = createDiv("gauge_main col-md-4");
+            gaugeCircle = createDiv("gauge__circle");
+            gaugeInfo = createDiv("gauge__info");
 
             //Append elements to the DOM
-            this.createGaugeMain.appendChild(gaugeCircle);
-            this.createGaugeMain.appendChild(gaugeInfo);
+            createGaugeMain.appendChild(gaugeCircle);
+            createGaugeMain.appendChild(gaugeInfo);
 
-            this.mainContainer.appendChild(this.createGaugeMain);
+            mainContainer.appendChild(createGaugeMain);
 
             // TODO: Add Titles to gaugeInfo
         };
