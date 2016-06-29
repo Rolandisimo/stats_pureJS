@@ -1,0 +1,14 @@
+[
+    {
+        "tabletRev": 120000,
+        "mobileRev": 80000
+    },
+    {
+        "tabletRev": 300000,
+        "mobileRev": 200000
+    },
+    {
+        "tabletRev": 5000,
+        "mobileRev": 9000
+    }
+]
