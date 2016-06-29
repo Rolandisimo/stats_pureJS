@@ -1,26 +1,15 @@
 require("!style!css!sass!./styles/main.scss");
 import axios from 'axios';
-
-//Simulate Backend server
-setTimeout(function () {
-    const data = axios.get('./data.json')
-    .then(response => {
-        console.log("Axios Data: ", response.data);
-        //Make page
-        loadPage(response.data);
-    })
-    .catch(error => {
-        console.log("Error: ", error);
-        document.write("Oops, something went wrong!");
-    });
-}, 1000);
+import { createDiv } from './helpers/helpers.js';
+import HeroModel from './model/HeroModel.js';
 
 
 
 
 
-//Helper function
-const createDiv = () => document.createElement('div');
+//Create rest model
+let heroModel = new HeroModel;
+heroModel.get();
 
 
 
@@ -86,3 +75,10 @@ const loadPage = (sources) => {
 
     }(window));
 };
+
+
+
+
+
+// Exports
+export {loadPage};
