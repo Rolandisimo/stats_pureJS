@@ -4,9 +4,15 @@
     Create elements
     @params: STRING – the className
 */
-const createDiv = (klass = "") => {
+const createDiv = (options = {}) => {
     let element = document.createElement('div');
-    element.className = klass;
+
+
+    if (options.class_name) {
+        element.className = options.class_name;
+    }
+
+
     return element;
 };
 
