@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {loadPage} from '../index.js';
+import GaugeComponent from '../components/GaugeComponent.js';
 
 const HeroModel = function() {
     this.get = function() {
@@ -9,7 +9,7 @@ const HeroModel = function() {
             .then(response => {
                 console.log("Axios Data: ", response.data);
                 //Make page
-                loadPage(response.data);
+                GaugeComponent(response.data);
             })
             .catch(error => {
                 console.log("Error: ", error);
