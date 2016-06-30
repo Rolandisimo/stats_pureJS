@@ -35,7 +35,7 @@ const createElement = (options = {}) => {
         let mobileData, tabletData;
         mobileData = options.data.mobile;
         tabletData = options.data.tablet;
-
+        console.log(options.data);
         //Set the data as a number
         switch (true) {
             case mobileData.hasOwnProperty('revenue'):

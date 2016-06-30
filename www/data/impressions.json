@@ -1,0 +1,8 @@
+{
+    "tablet": {
+        "impressions": 20000000
+    },
+    "mobile": {
+        "impressions": 30000000
+    }
+}
