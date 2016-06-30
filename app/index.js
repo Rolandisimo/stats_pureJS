@@ -13,32 +13,57 @@ let heroVisits = new HeroModel;
 
 //Make page
 let parentElement = document.querySelector('#main_container');
+let revenueData = heroVisits.getData('./data/revenue.json');
+let impressionsData = heroVisits.getData('./data/impressions.json');
+let visitsData = heroVisits.getData('./data/visits.json');
 
+const createPage = () => {
+            GaugeComponent({
+                "tablet": {
+                    "revenue": 120000,
+                    "currency": true
+                },
+                "mobile": {
+                    "revenue": 80000,
+                    "currency": true
+                },
+                ...styles.green
+            }).render(parentElement);
 
-async function loadPage() {
-    try {
-        let revenueData = await heroVisits.getData('./data/revenue.json');
-        let impressionsData = await heroVisits.getData('./data/impressions.json');
-        let visitsData = await heroVisits.getData('./data/visits.json');
+            GaugeComponent({
 
+                "tablet": {
+                    "impressions": 20000000
+                },
+                "mobile": {
+                    "impressions": 30000000
+                },
 
-        GaugeComponent({
-            ...revenueData,
-            ...styles.green
-        }).render(parentElement);
+                ...styles.blue
+            }).render(parentElement);
 
-        GaugeComponent({
-            ...impressionsData,
-            ...styles.blue
-        }).render(parentElement);
-
-        GaugeComponent({
-            ...visitsData,
-            ...styles.yellow
-        }).render(parentElement);
-    } catch (e) {
-        console.log("Error in Controller:", e);
-    }
+            GaugeComponent({
+                "tablet": {
+                    "visits": 480000000
+                },
+                "mobile": {
+                    "visits": 120000000
+                },
+                ...styles.yellow
+            }).render(parentElement);
 }
+createPage();
 
-loadPage();
+
+// async function loadPage() {
+//     try {
+//
+//
+//
+//
+//     } catch (e) {
+//         console.log("Error in Controller:", e);
+//     }
+// }
+//
+// loadPage();

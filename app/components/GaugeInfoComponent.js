@@ -10,66 +10,48 @@ const GaugeInfoComponent = (props) => {
     *   Gauge component
     */
     function GaugeInfoContainer(props) {
-        this.render(props);
+        this.props = props;
     }
 
-    GaugeInfoContainer.prototype.render = function(props) {
-        //General variables
-        let gaugeCircle = this.gaugeCircle,
-            gaugeInfo = this.gaugeInfo,
-            createGaugeMain = this.createGaugeMain,
-            mainContainer = this.mainContainer,
-            tabletContainer,
-            mobileContainer;
-
-
-
-
-        // Options constructor
-        let options = (node, class_name, parentNode, titleNode, titleText, data) => {
-            return {node, class_name, parentNode, titleNode, titleText, data};
-        };
-
-
-        // Main Wrappers
-        mainContainer = document.querySelector('#main_container');
-        createGaugeMain = createElement({class_name: "gauge_main col-md-4"});
-
+    GaugeInfoContainer.prototype.render = function(parentElement) {
+        console.log(parentElement);
 
         // Gauge Bottom part – Info, data
-        gaugeInfo = createElement(options("div", "gauge__info flexParent flexBetween", createGaugeMain));
+        let gaugeInfo = createElement({node: 'div', class_name: "gauge__info flexParent flexBetween"});
 
         // Gauge Info data containers
-        tabletContainer = createElement(
-            options(
-                "div",
-                "gauge__info_left flexParent flexColumn text-left",
-                gaugeInfo,
-                'h4',
-                'Tablet',
-                props
-            )
+        let tabletContainer = createElement(
+            {
+                node: 'div',
+                class_name: 'gauge__info_left flexParent flexColumn text-left',
+                titleNode: 'h4',
+                titleText: 'Tablet'
+            }
         );
-        mobileContainer = createElement(
-            options(
-                "div",
-                "gauge__info_right flexParent flexColumn text-right",
-                gaugeInfo,
-                "h4",
-                'Smartphone',
-                props
-            )
+        let mobileContainer = createElement(
+            {
+                node: 'div',
+                class_name: 'gauge__info_right flexParent flexColumn text-right',
+                titleNode: 'h4',
+                titleText: 'Smartphone'
+            }
         );
 
 
 
+        gaugeInfo.appendChild(tabletContainer);
+        gaugeInfo.appendChild(mobileContainer);
+
+        console.log(gaugeInfo);
 
         // Glue all together in the DOM
-        mainContainer.appendChild(createGaugeMain);
+        parentElement.appendChild(gaugeInfo);
+
+        return gaugeInfo;
     };
 
 
-    new GaugeInfoContainer(props);
+    return new GaugeInfoContainer(props);
 };
 
 
