@@ -1,14 +1,28 @@
 [
     {
-        "tabletRev": 120000,
-        "mobileRev": 80000
+        "tablet": {
+            "revenue": 120000,
+            "currency": true
+        },
+        "mobile": {
+            "revenue": 80000,
+            "currency": true
+        }
     },
     {
-        "tabletRev": 300000,
-        "mobileRev": 200000
+        "tablet": {
+            "impressions": 20000000
+        },
+        "mobile": {
+            "impressions": 30000000
+        }
     },
     {
-        "tabletRev": 5000,
-        "mobileRev": 9000
+        "tablet": {
+            "visits": 480000000
+        },
+        "mobile": {
+            "visits": 120000000
+        }
     }
 ]

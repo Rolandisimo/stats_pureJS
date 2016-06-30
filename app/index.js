@@ -6,4 +6,6 @@ import HeroModel from './model/HeroModel.js';
 
 // Initialize App
 let heroModel = new HeroModel;
-heroModel.get();
+heroModel.getRevenue();
+heroModel.getImpressions();
+heroModel.getVisits();
