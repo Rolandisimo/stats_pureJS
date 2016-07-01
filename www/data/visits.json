@@ -1,8 +1,8 @@
 {
     "tablet": {
-        "visits": 480000000
+        "value": 480000000
     },
     "mobile": {
-        "visits": 120000000
+        "value": 120000000
     }
 }

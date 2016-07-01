@@ -20,6 +20,10 @@ $gaugeMinHeight: 330px;
 .flexBetween {
     justify-content: space-between;
 }
+.flexMiddle {
+    justify-content: center;
+    align-items: center;
+}
 .textMuted {
     color: darken($textMuted, 10%);
 }
@@ -57,7 +61,8 @@ $gaugeMinHeight: 330px;
     .gauge__circle {
         width: $circleSize;
         height: $circleSize;
-        border: 10px solid darken($green_main, 30%);
+        border-width: 10px;
+        border-style: solid;
         border-radius: 50%;
         margin: 0 auto;
     }

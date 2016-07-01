@@ -20,18 +20,12 @@ const GaugeComponent = (props) => {
         //General variables
 
 
-        // Options constructor
-        // let options = (node, class_name, parentNode, titleNode, titleText, data) => {
-        //     return {node, class_name, parentNode, titleNode, titleText, data};
-        // };
-
-
         // Main Wrappers
         let gaugeMain = createElement({node: 'div', class_name: "gauge_main col-md-4"});
 
         // Render Child Components
-        CircleComponent().render(gaugeMain);
-        GaugeInfoComponent().render(gaugeMain);
+        CircleComponent(props).render(gaugeMain);
+        GaugeInfoComponent(props).render(gaugeMain);
 
         parentElement.appendChild(gaugeMain);
 

@@ -1,8 +1,8 @@
 {
     "tablet": {
-        "impressions": 20000000
+        "value": 20000000
     },
     "mobile": {
-        "impressions": 30000000
+        "value": 30000000
     }
 }

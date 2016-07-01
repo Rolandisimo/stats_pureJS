@@ -1,10 +1,10 @@
 {
     "tablet": {
-        "revenue": 120000,
+        "value": 120000,
         "currency": true
     },
     "mobile": {
-        "revenue": 80000,
+        "value": 80000,
         "currency": true
     }
 }

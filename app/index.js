@@ -13,53 +13,44 @@ let heroVisits = new HeroModel;
 
 //Make page
 let parentElement = document.querySelector('#main_container');
-let revenueData = heroVisits.getData('./data/revenue.json');
-let impressionsData = heroVisits.getData('./data/impressions.json');
-let visitsData = heroVisits.getData('./data/visits.json');
 
 const createPage = () => {
-            GaugeComponent({
-                "tablet": {
-                    "revenue": 120000,
-                    "currency": true
-                },
-                "mobile": {
-                    "revenue": 80000,
-                    "currency": true
-                },
-                ...styles.green
-            }).render(parentElement);
+            const revenueCallback = (data) => {
+                GaugeComponent({
+                    ...data,
+                    ...styles.green
+                }).render(parentElement);
+            };
 
-            GaugeComponent({
+            const impressionsCallback = (data) => {
+                GaugeComponent({
+                    ...data,
+                    ...styles.blue
+                }).render(parentElement);
+            };
 
-                "tablet": {
-                    "impressions": 20000000
-                },
-                "mobile": {
-                    "impressions": 30000000
-                },
+            const visitsCallback = (data) => {
+                GaugeComponent({
+                    ...data,
+                    ...styles.yellow
+                }).render(parentElement);
+            };
 
-                ...styles.blue
-            }).render(parentElement);
-
-            GaugeComponent({
-                "tablet": {
-                    "visits": 480000000
-                },
-                "mobile": {
-                    "visits": 120000000
-                },
-                ...styles.yellow
-            }).render(parentElement);
+            heroRevenue.getData('./data/revenue.json', revenueCallback);
+            heroImpressions.getData('./data/impressions.json', impressionsCallback);
+            heroVisits.getData('./data/visits.json', visitsCallback);
 }
 createPage();
 
-
+/*
+ Tried using ES7 async but failed miserably wasting about
+ 4 hours on debugging.
+*/
 // async function loadPage() {
 //     try {
 //
 //
-//
+//      //more code was here...
 //
 //     } catch (e) {
 //         console.log("Error in Controller:", e);

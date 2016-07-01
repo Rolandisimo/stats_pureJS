@@ -14,7 +14,6 @@ const GaugeInfoComponent = (props) => {
     }
 
     GaugeInfoContainer.prototype.render = function(parentElement) {
-        console.log(parentElement);
 
         // Gauge Bottom part – Info, data
         let gaugeInfo = createElement({node: 'div', class_name: "gauge__info flexParent flexBetween"});
@@ -25,7 +24,9 @@ const GaugeInfoComponent = (props) => {
                 node: 'div',
                 class_name: 'gauge__info_left flexParent flexColumn text-left',
                 titleNode: 'h4',
-                titleText: 'Tablet'
+                titleText: 'Tablet',
+                titleStyle: props.main,
+                data: props
             }
         );
         let mobileContainer = createElement(
@@ -33,16 +34,15 @@ const GaugeInfoComponent = (props) => {
                 node: 'div',
                 class_name: 'gauge__info_right flexParent flexColumn text-right',
                 titleNode: 'h4',
-                titleText: 'Smartphone'
+                titleText: 'Smartphone',
+                titleStyle: props.dark,
+                data: props
             }
         );
 
 
-
         gaugeInfo.appendChild(tabletContainer);
         gaugeInfo.appendChild(mobileContainer);
-
-        console.log(gaugeInfo);
 
         // Glue all together in the DOM
         parentElement.appendChild(gaugeInfo);
