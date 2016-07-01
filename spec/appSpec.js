@@ -1,14 +1,15 @@
 import HeroModel from '../app/model/HeroModel';
 import GaugeComponent from '../app/components/GaugeComponent.js';
 
+let callbackData;
+let heroInstance;
+let intialDataCallback;
+let json;
+let props;
+let mainContainer;
+let element;
 
-
-
-
-describe("Data requests", () => {
-    let heroInstance;
-    let callback;
-    let json;
+describe("Data Flow", () => {
     beforeEach(() => {
         heroInstance = new HeroModel;
         json = {
@@ -24,13 +25,37 @@ describe("Data requests", () => {
     });
     it("should return data from json", (done) => {
 
-        callback = (data) => {
+        intialDataCallback = (data) => {
             expect(data).toEqual(json);
 
-            done();
-            return data;
+            callbackData = data;
+            return done();
         };
 
-        heroInstance.getData('http://localhost:8080/data/revenue.json', callback);
+        heroInstance.getData('http://localhost:8080/data/revenue.json', intialDataCallback);
+    });
+    it("should receive props from callback", (done) => {
+
+        props = GaugeComponent(callbackData).props;
+
+        expect(props).toBeDefined();
+
+        return done();
+    });
+    it("should render the component to the DOM", (done) => {
+
+        //Mock DOM element
+        // var mainContainer = document.createElement('div');
+        // mainContainer.id = "main_container";
+        //
+        // element = GaugeComponent(callbackData).render(mainContainer);
+        // console.log("element: ", element);
+        // expect(element).toBeDefined();
+        expect(true).toBe(true);
+        return done();
+    });
+
+    afterEach(function() {
+        //Clear variables after each test
     });
 });
