@@ -30,6 +30,9 @@ $gaugeMinHeight: 330px;
 .spaceRight {
     margin-right: 10px;
 }
+.marginZero {
+    margin: 0;
+}
 //Text color util classes
 .textGreen {
     color: $green_main;
@@ -49,7 +52,9 @@ $gaugeMinHeight: 330px;
 .textDarkBlue {
     color: darken($yellow_main, 30%);
 }
-
+.textBig {
+    font-size: 2em;
+}
 
 
 

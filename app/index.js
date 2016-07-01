@@ -18,21 +18,24 @@ const createPage = () => {
             const revenueCallback = (data) => {
                 GaugeComponent({
                     ...data,
-                    ...styles.green
+                    ...styles.green,
+                    title: 'Revenue'
                 }).render(parentElement);
             };
 
             const impressionsCallback = (data) => {
                 GaugeComponent({
                     ...data,
-                    ...styles.blue
+                    ...styles.blue,
+                    title: 'Impressions'
                 }).render(parentElement);
             };
 
             const visitsCallback = (data) => {
                 GaugeComponent({
                     ...data,
-                    ...styles.yellow
+                    ...styles.yellow,
+                    title: 'Visits'
                 }).render(parentElement);
             };
 

@@ -47,8 +47,8 @@ const createElement = (options = {}) => {
             mobileNumber = props.mobile.value;
 
         if (props.mobile.currency && props.tablet.currency) {
-            tabletNumber = tabletNumber.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-            mobileNumber = mobileNumber.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+            tabletNumber = tabletNumber.toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumSignificantDigits: 1  });
+            mobileNumber = mobileNumber.toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumSignificantDigits: 1  });
         } else {
             tabletNumber = tabletNumber.toLocaleString('de-DE');
             mobileNumber = mobileNumber.toLocaleString('de-DE');

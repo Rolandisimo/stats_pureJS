@@ -15,17 +15,27 @@ const CircleComponent = (props) => {
 
     Circle.prototype.render = (parentElement) => {
         //General variables
-        let gaugeCircle = createElement({node: 'div', class_name: "gauge__circle flexParent flexMiddle flexColumn"});
-        let title = createElement({node: 'h2'})
-        let dataSum = parseInt(props.mobile.value, 10) + parseInt(props.tablet.value, 10);
+        let gaugeCircle = createElement({node: 'div', class_name: "gauge__circle flexParent flexMiddle flexColumn"}),
+            title = createElement({node: 'h2'}),
+            dataElement = createElement({node: 'p'}),
+            dataSum = parseInt(props.mobile.value, 10) + parseInt(props.tablet.value, 10);
+
+        title.innerHTML = props.title;
 
         if (props.mobile.currency && props.tablet.currency) {
-            title.innerHTML = dataSum.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+            dataElement.innerHTML = dataSum.toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumSignificantDigits: 1 });
         } else {
-            title.innerHTML = dataSum.toLocaleString('de-DE');
+            dataElement.innerHTML = dataSum.toLocaleString('de-DE');
         }
+
+        //Add styling from props
         gaugeCircle.style.borderColor = props.dark;
+        title.className = "textMuted marginZero";
+        dataElement.className = "textBig";
+
+        //Append childs to parentElement
         gaugeCircle.appendChild(title);
+        gaugeCircle.appendChild(dataElement);
         // Glue all together in the DOM
         parentElement.appendChild(gaugeCircle);
 
