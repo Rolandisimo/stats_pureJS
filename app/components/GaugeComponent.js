@@ -13,7 +13,6 @@ const GaugeComponent = (props) => {
     */
     function GaugeContainer(props) {
         this.props = props;
-        console.log(props);
         return this;
     }
 
