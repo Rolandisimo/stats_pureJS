@@ -1,6 +1,10 @@
 import HeroModel from '../app/model/HeroModel';
 import GaugeComponent from '../app/components/GaugeComponent.js';
 
+
+
+
+
 let callbackData;
 let heroInstance;
 let intialDataCallback;
@@ -45,8 +49,8 @@ describe("Data Flow", () => {
     it("should render the component to the DOM", (done) => {
 
         //Mock DOM element
-        // var mainContainer = document.createElement('div');
-        // mainContainer.id = "main_container";
+        // var mainContainer = '<div id="main_container"></div>';
+        // // mainContainer.id = "main_container";
         //
         // element = GaugeComponent(callbackData).render(mainContainer);
         // console.log("element: ", element);

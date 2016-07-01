@@ -1,4 +1,4 @@
-import {createElement, addDataToElement} from '../helpers/helpers.js';
+import {createElement} from '../helpers/helpers.js';
 
 
 

@@ -14,11 +14,6 @@ const createElement = (options = {}) => {
         element.className = options.class_name;
     }
 
-    //Append to parent node
-    if (options.parentNode) {
-        options.parentNode.appendChild(element);
-    }
-
     //Add Titles
     if (options.titleNode && options.titleText) {
         let title = document.createElement(options.titleNode);
@@ -79,11 +74,9 @@ const createElement = (options = {}) => {
     return element;
 };
 
-const addDataToElement = (data) => {
 
-}
 
 
 
 // Exports
-export { createElement, addDataToElement };
+export { createElement };

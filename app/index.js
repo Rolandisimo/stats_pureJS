@@ -15,33 +15,33 @@ let parentElement = document.querySelector('#main_container');
 
 // Render App
 const createPage = () => {
-            const revenueCallback = (data) => {
-                GaugeComponent({
-                    ...data,
-                    ...styles.green,
-                    title: 'Revenue'
-                }).render(parentElement);
-            };
+    const revenueCallback = (data) => {
+        GaugeComponent({
+            ...data,
+            ...styles.green,
+            title: 'Revenue'
+        }).render(parentElement);
+    };
 
-            const impressionsCallback = (data) => {
-                GaugeComponent({
-                    ...data,
-                    ...styles.blue,
-                    title: 'Impressions'
-                }).render(parentElement);
-            };
+    const impressionsCallback = (data) => {
+        GaugeComponent({
+            ...data,
+            ...styles.blue,
+            title: 'Impressions'
+        }).render(parentElement);
+    };
 
-            const visitsCallback = (data) => {
-                GaugeComponent({
-                    ...data,
-                    ...styles.yellow,
-                    title: 'Visits'
-                }).render(parentElement);
-            };
+    const visitsCallback = (data) => {
+        GaugeComponent({
+            ...data,
+            ...styles.yellow,
+            title: 'Visits'
+        }).render(parentElement);
+    };
 
-            heroRevenue.getData('./data/revenue.json', revenueCallback);
-            heroImpressions.getData('./data/impressions.json', impressionsCallback);
-            heroVisits.getData('./data/visits.json', visitsCallback);
+    heroRevenue.getData('./data/revenue.json', revenueCallback);
+    heroImpressions.getData('./data/impressions.json', impressionsCallback);
+    heroVisits.getData('./data/visits.json', visitsCallback);
 }
 
 
