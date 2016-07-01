@@ -8,6 +8,9 @@ const HeroModel = function() {
             const data = axios.get(url)
             .then(response => {
                 cb && cb(response.data);
+
+                
+                return response.data;
             })
             .catch(error => {
                 console.log("Error: ", error);
