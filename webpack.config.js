@@ -1,7 +1,7 @@
 var path = require('path');
 var projectRoot = __dirname;
 
-var config = {
+var WebpackConf = {
     // Must be an absolute path or watching feature will fail
     context: path.join(projectRoot, 'app'),
     entry: ['babel-polyfill', './index.js'],
@@ -32,4 +32,4 @@ var config = {
         root: [path.join(projectRoot, 'node_modules')]
     }
 };
-module.exports = config;
+module.exports = WebpackConf;

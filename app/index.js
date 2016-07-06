@@ -7,14 +7,13 @@ import GaugeComponent from './components/GaugeComponent.js';
 
 
 
-// Set variables
-let heroRevenue = new HeroModel;
-let heroImpressions = new HeroModel;
-let heroVisits = new HeroModel;
-let parentElement = document.querySelector('#main_container');
+async function createPage() {
+    let heroRevenue = new HeroModel,
+        heroImpressions = new HeroModel,
+        heroVisits = new HeroModel,
+        parentElement = document.querySelector('#main_container');
 
-// Render App
-const createPage = () => {
+
     const revenueCallback = (data) => {
         GaugeComponent({
             ...data,
@@ -39,13 +38,9 @@ const createPage = () => {
         }).render(parentElement);
     };
 
-    heroRevenue.getData('./data/revenue.json', revenueCallback);
-    heroImpressions.getData('./data/impressions.json', impressionsCallback);
-    heroVisits.getData('./data/visits.json', visitsCallback);
+
+    await heroRevenue.getData('./data/revenue.json', revenueCallback);
+    await heroImpressions.getData('./data/impressions.json', impressionsCallback);
+    await heroVisits.getData('./data/visits.json', visitsCallback);
 }
-
-
-
-
-
-createPage();
+// createPage()
